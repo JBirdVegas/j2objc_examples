@@ -1,4 +1,4 @@
 language: java
 jdk: oraclejdk7
 
-script: pushd . && cd simple/ && ./gradlew shared:build && popd
+#script: pushd . && cd simple/ && ./gradlew shared:build && popd
