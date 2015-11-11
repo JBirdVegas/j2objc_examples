@@ -1,13 +1,4 @@
 language: android
-jdk: oraclejdk7
-env:
-  matrix:
-    - ANDROID_TARGET=android-23  ANDROID_ABI=armeabi-v7a
-android:
-  components:
-    - build-tools-23.0.2
-install:
-  #- ./install.sh	
 
 before_script:
 #  - ./install.sh
