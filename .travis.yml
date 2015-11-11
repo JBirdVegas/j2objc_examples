@@ -25,7 +25,5 @@ before_script:
 
 script:
   - cat ./local.properties
-	# ./gradlew app:assemble
-
 after_script:
   - popd
