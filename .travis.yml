@@ -16,7 +16,7 @@ before_install:
   # http://docs.travis-ci.com/user/common-build-problems/#Mac%3A-Errors-running-CocoaPods
   - gem install cocoapods -v '0.39.0'
   # Travis doesn't let us select the JDK version on OS X.  Force it ourselves.
-  - ./install-osx-jdk7.sh
+  #- ./install-osx-jdk7.sh
 #install:
 #  - ./install.sh
 
@@ -29,7 +29,6 @@ before_script:
 #  - adb shell input keyevent 82 &
 
 script:
-#  - ./gradlew build
-  - ls
+  - ./gradlew build
 after_script:
   - popd
