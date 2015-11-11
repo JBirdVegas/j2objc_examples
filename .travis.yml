@@ -11,7 +11,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
 before_install:
-  - rvm ls
+  - rvm install ruby-2.2.0 && rvm --create ruby-2.2.0 && rvm use ruby-2.2.0
   # Cocoapods must be manually due to issues with Travis:
   # http://docs.travis-ci.com/user/common-build-problems/#Mac%3A-Errors-running-CocoaPods
   - gem install cocoapods -v '0.39.0'
