@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    //id 'com.github.j2objccontrib.j2objcgradle' version '0.5.0-alpha'
+    id 'com.github.j2objccontrib.j2objcgradle' version '0.5.0-alpha'
 }
 
 dependencies {
@@ -14,7 +14,7 @@ dependencies {
     }
 }
 
-/*
+
 // Plugin settings; put these at the bottom of the file.
 j2objcConfig {
     //support 32bit
@@ -35,4 +35,3 @@ j2objcConfig {
 
     finalConfigure()          // Must be last call to configuration
 }
-*/
