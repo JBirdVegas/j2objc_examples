@@ -8,13 +8,5 @@ env:
 android:
   components:
     - build-tools-23.0.2
-	
-	
 install:
   - ./install.sh	
-
-before_script:
-  - pushd . && cd simple/
-
-after_script:
-  - popd
