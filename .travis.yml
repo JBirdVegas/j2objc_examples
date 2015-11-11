@@ -10,10 +10,12 @@ install:
   #- ./install.sh	
 
 before_script:
+  - ./install.sh
   - pushd . && cd simple/
 
 script:
   - echo "hello"
+  - ./gradlew shared:build
 
 after_script:
   - popd
