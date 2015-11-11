@@ -8,12 +8,13 @@ env:
 android:
   components:
     - build-tools-23.0.2
-#script: pushd . && cd simple/ && ./gradlew shared:build && popd
+	
+	
+install:
+  - ./install.sh	
+
 before_script:
   - pushd . && cd simple/
-
-script:
-  - ./gradlew connectedAndroid
 
 after_script:
   - popd
