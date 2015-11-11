@@ -7,8 +7,7 @@ env:
 
 android:
   components:
-	- build-tools-23.0.2
-
+    - build-tools-23.0.2
 #script: pushd . && cd simple/ && ./gradlew shared:build && popd
 before_script:
   - pushd . && cd simple/
