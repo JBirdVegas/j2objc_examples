@@ -12,6 +12,9 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
 
+install:
+  - ./install.sh
+
 before_script:
   - pushd . && cd simple
   # Create and start emulator
