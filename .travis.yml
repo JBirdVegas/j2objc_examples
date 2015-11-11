@@ -12,5 +12,8 @@ android:
 before_script:
   - pushd . && cd simple/
 
+script:
+  - ./gradlew connectedAndroid
+
 after_script:
   - popd
