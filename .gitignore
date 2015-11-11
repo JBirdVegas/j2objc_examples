@@ -50,3 +50,6 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+
+#j2objc library
+localJ2objcDist
