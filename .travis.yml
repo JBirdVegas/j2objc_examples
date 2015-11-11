@@ -24,13 +24,6 @@ matrix:
       env:
        - USING_OS=osx
        - USING_XCODE=7
-
-branches:
-  only:
-    - master
-    - /^release.*$/
-    - /^v[0-9].*$/
-
 # We can be run in a container for improved performance.
 sudo: false
 
@@ -45,14 +38,7 @@ before_install:
 # This can fail if we cannot download Gradle 2.4 or the libraries
 # we depend on.
 install:
-  # Don't spew graphic art.
-  - export TERM=dumb
-  - env
-  - java -Xmx32m -version && javac -J-Xmx32m -version
-  - ./gradlew wrapper
-  - ./gradlew dependencies
-  # Prepare our system tests
-  - if [ "$USING_OS" = "osx" ]; then systemTests/install.sh; fi
+  - if [ "$USING_OS" = "osx" ]; then ./install.sh; fi
 
 before_script:
   - pushd . && cd simple
