@@ -1,0 +1,28 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+# J2ObjC Gradle Plugin - DO NOT MODIFY from here to the first target
+def j2objc_shared
+    pod 'j2objc-shared-debug', :configuration => ['Debug'], :path => '../../shared/build'
+    pod 'j2objc-shared-release', :configuration => ['Release'], :path => '../../shared/build'
+end
+
+target 'simple' do
+    platform :ios, '6.0'
+    j2objc_shared
+
+end
+
+target 'simpleTests' do
+    platform :ios, '6.0'
+    j2objc_shared
+
+end
+
+target 'simpleUITests' do
+    platform :ios, '6.0'
+    j2objc_shared
+
+end
