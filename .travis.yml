@@ -2,11 +2,15 @@ language: android
 jdk: oraclejdk7
 env:
   matrix:
-    - ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-23  ANDROID_ABI=armeabi-v7a
 
 android:
   components:
-    - build-tools-19.0.0
+    - tools
+    - android-23
+    - build-tools-23.0.1
+    - extra-google-m2repository
+    - extra-android-m2repository
 
 before_script:
   - pushd . && cd simple
@@ -16,7 +20,7 @@ before_script:
 #  - adb wait-for-device
 #  - adb shell input keyevent 82 &
 
-script: ./gradlew clean build
+script: ./gradlew clean app:build
 
-after_scrirpt:
+after_script:
   - popd
