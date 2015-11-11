@@ -7,10 +7,13 @@ android:
   components:
     - build-tools-23.0.2
 install:
-  - ./install.sh	
+  #- ./install.sh	
 
 before_script:
   - pushd . && cd simple/
+
+script:
+  - echo "hello"
 
 after_script:
   - popd
