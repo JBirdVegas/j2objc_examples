@@ -10,7 +10,7 @@ matrix:
         - USING_OS=osx
         - USING_XCODE=7
     - os: linux
-      language: groovy
+      language: android
       jdk: oraclejdk7
       env: USING_OS=linux
 # We can be run in a container for improved performance.
