@@ -9,6 +9,10 @@ matrix:
       env:
        - USING_OS=osx
        - USING_XCODE=7
+    - os: linux
+	  language: groovy
+	  jdk: oraclejdk7
+	  env: USING_OS=linux
 # We can be run in a container for improved performance.
 sudo: false
 
@@ -32,7 +36,7 @@ before_script:
 # and test failures separately.
 script:
 #  - ./gradlew assemble
-#  - ./gradlew build
+  - ./gradlew build
   # Run our system tests
   - if [ "$USING_OS" = "osx" ]; then ./gradlew :shared:build; fi
   
