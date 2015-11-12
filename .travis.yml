@@ -34,7 +34,7 @@ before_install:
 # This can fail if we cannot download Gradle 2.4 or the libraries
 # we depend on.
 install:
-  - if [ "$USING_OS" = "osx" ]; then ./install.sh; fi
+  - ./install.sh
 
 before_script:
   - pushd . && cd simple
