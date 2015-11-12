@@ -13,6 +13,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // Enabling multidex support.
+        multiDexEnabled true
+
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
@@ -20,6 +23,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:23.1.0'
+        //resolutionStrategy.force 'junit:junit:4.12'
+
     }
 }
 
@@ -32,8 +41,8 @@ dependencies {
     compile project(':shared')
 
     compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:multidex:1.0.0'
 
-    androidTestCompile 'com.android.support:support-annotations:23.1.0'
     androidTestCompile 'com.android.support.test:runner:0.2'
     androidTestCompile 'com.android.support.test:rules:0.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'
@@ -41,5 +50,8 @@ dependencies {
     androidTestCompile "com.google.dexmaker:dexmaker:${DEXMAKER_VERSION}"
     androidTestCompile "com.google.dexmaker:dexmaker-mockito:${DEXMAKER_VERSION}"
     androidTestCompile 'org.mockito:mockito-core:1.10.19'
-    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile ('junit:junit:4.12') {
+        //exclude module: 'hamcrest-core'
+    }
+
 }
