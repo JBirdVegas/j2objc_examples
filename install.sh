@@ -83,7 +83,7 @@ fi
 pushd .
 cd simple
 
-echo include ':shared' > settings.gradle
+echo "include ':shared'" > settings.gradle
 
 popd
 
