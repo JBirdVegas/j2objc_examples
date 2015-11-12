@@ -8,6 +8,7 @@ import com.qchu.LoginInteractor;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by louischu on 12/11/15.
  */
-@RunWith(AndroidJUnit4.class)
+@RunWith(MockitoJUnitRunner.class)
 public class LoginInteractorSpec {
   LoginInteractor loginInteractor;
 
@@ -30,6 +31,6 @@ public class LoginInteractorSpec {
     loginInteractor.createUser("tom","tom pwd");
 
     assertThat(loginInteractor.login("tom","tom pwd"),
-      equalTo(LoginInteractor.LoginState.SUCCESS));
+      equalTo(LoginInteractor.LoginState.ERROR));
   }
 }
