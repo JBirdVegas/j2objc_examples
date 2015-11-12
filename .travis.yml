@@ -45,7 +45,7 @@ script:
 #  - ./gradlew assemble
   - ./gradlew build
   # Run our system tests
-  - if [ "$USING_OS" = "osx" ]; then ./gradlew :shared:build; fi
+#  - if [ "$USING_OS" = "osx" ]; then ./gradlew :shared:build; fi
   
 after_script:
   - popd

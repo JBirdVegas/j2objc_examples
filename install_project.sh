@@ -15,19 +15,21 @@ fi
 
 echo j2objc.home=../localJ2objcDist/j2objc-0.9.8.2.1 > $LOCAL_PROPS_FILE
 
-#translateOnly mode
-if [ "${J2OBJC_TRANSLATE_ONLY:=false}" == "true" ]; then
+#translateOnly mode in linux for Android
+if [ "$USING_OS" = "linux" ]; then
 	echo j2objc.translateOnlyMode=true >> $LOCAL_PROPS_FILE
 fi
 #See results
 echo "./$PROJECT_DIR/local.properties configured:"
 cat $LOCAL_PROPS_FILE
 
-#Build only shared project
-SETTINGS_FILE=settings.gradle
+if [ "$USING_OS" = "osx" ]; then
+	#Build only shared project
+	SETTINGS_FILE=settings.gradle
 
-echo "include ':shared'" > $SETTINGS_FILE
-echo "./$PROJECT_DIR/settings.gradle configured:"
-cat $SETTINGS_FILE
+	echo "include ':shared'" > $SETTINGS_FILE
+	echo "./$PROJECT_DIR/settings.gradle configured:"
+	cat $SETTINGS_FILE
+fi
 
 popd
