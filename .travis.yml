@@ -44,6 +44,7 @@ before_script:
 script:
 #  - ./gradlew assemble
   - ./gradlew build
+  - if [ "$USING_OS" = "linux" ]; then ./gradlew :app:connectedAndroidTest; fi
   # Run our system tests
 #  - if [ "$USING_OS" = "osx" ]; then ./gradlew :shared:build; fi
   
