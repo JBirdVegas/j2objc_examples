@@ -27,7 +27,6 @@ set -euv
 
 # Suppress error if directories already exist
 mkdir -p localJ2objcDist
-mkdir -p common
 
 pushd localJ2objcDist
 
@@ -35,11 +34,6 @@ pushd localJ2objcDist
 # export J2OBJC_VERSION=X.Y.Z
 # Default is version number listed on following line:
 J2OBJC_VERSION=${J2OBJC_VERSION:=0.9.8.2.1}
-
-# Specific version can be configured from command line:
-# export ANDROID_HOME=DIR
-# Default is for Travis default location, listed on following line:
-ANDROID_HOME=${ANDROID_HOME:=/usr/local/android-sdk}
 
 echo "J2OBJC Version: $J2OBJC_VERSION"
 
@@ -50,41 +44,11 @@ DIST_FILE=$DIST_DIR.zip
 if [ ! -e $DIST_FILE ]; then
    curl -L https://github.com/google/j2objc/releases/download/$J2OBJC_VERSION/j2objc-$J2OBJC_VERSION.zip > $DIST_FILE
    unzip -q $DIST_FILE
-
-   # ./common/local.properties
-   echo j2objc.home=$PWD/$DIST_DIR > ../common/local.properties
-   if [ "${ANDROID_BUILD_DISABLED:=false}" != "true" ]; then
-      echo sdk.dir=$ANDROID_HOME >> ../common/local.properties
-   fi
-   if [ "${J2OBJC_TRANSLATE_ONLY:=false}" == "true" ]; then
-      echo j2objc.translateOnlyMode=true >> ../common/local.properties
-   fi
-   echo "./common/local.properties configured:"
-   cat ../common/local.properties
 fi
 
 # pop localJ2objcDist
 popd
 
-#install local.properties files in all projects
-PROJECT_DIR=simple
-
-mkdir -p $PROJECT_DIR
-
-LOCAL_PROPS_FILE=$PROJECT_DIR/local.properties
-
-if [ ! -e $LOCAL_PROPS_FILE ]; then
-	touch $LOCAL_PROPS_FILE
-	echo j2objc.home=../localJ2objcDist/j2objc-0.9.8.2.1 > $LOCAL_PROPS_FILE
-	echo "./$PROJECT_DIR/local.properties configured:"
-	cat $LOCAL_PROPS_FILE
-fi
-
-pushd .
-cd simple
-
-echo "include ':shared'" > settings.gradle
-
-popd
+./install_all_projects.sh
 
 
