@@ -13,12 +13,12 @@ matrix:
       language: android
       jdk: oraclejdk7
       env: USING_OS=linux
-        - ANDROID_TARGET=android-23  ANDROID_ABI=armeabi-v7a
+        - ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
         - ADB_INSTALL_TIMEOUT=8
       android:
         components:
            - tools
-           - android-23
+           - android-19
            - build-tools-23.0.1
            - extra-google-m2repository
            - extra-android-m2repository
