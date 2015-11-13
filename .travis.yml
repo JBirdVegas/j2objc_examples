@@ -14,6 +14,7 @@ matrix:
       jdk: oraclejdk7
       env: USING_OS=linux
         - ANDROID_TARGET=android-23  ANDROID_ABI=armeabi-v7a
+        - ADB_INSTALL_TIMEOUT=8
       android:
         components:
            - tools
