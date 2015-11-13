@@ -20,6 +20,8 @@ matrix:
            - build-tools-23.0.1
            - extra-google-m2repository
            - extra-android-m2repository
+      before_script:
+        - echo $USING_OS
 # We can be run in a container for improved performance.
 sudo: false
 
