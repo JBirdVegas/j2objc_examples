@@ -21,6 +21,7 @@ matrix:
            - build-tools-23.0.1
            - extra-google-m2repository
            - extra-android-m2repository
+           - sys-img-armeabi-v7a-android-23
       before_script:
         - echo $USING_OS
         - pushd . && cd simple
