@@ -43,6 +43,7 @@ before_script:
 # and test failures separately.
 script:
 #  - ./gradlew assemble
+  - ./gradlew dependencies
   - ./gradlew build
   - if [ "$USING_OS" = "linux" ]; then ./gradlew :app:connectedAndroidTest; fi
   # Run our system tests
